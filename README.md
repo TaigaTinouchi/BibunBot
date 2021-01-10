@@ -9,6 +9,7 @@
 >- [webhook URL](
 https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receiver)
 >- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
+>- [AWSアカウントを取得したら速攻でやっておくべき初期設定まとめ](https://qiita.com/tmknom/items/303db2d1d928db720888#iamパスワードポリシーの適用)
 
 ## 仕様
 ラインでチャットされた関数に対し、その関数の微分を返信するチャットbotを作成する。  
@@ -22,6 +23,12 @@ https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receive
 [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
 を参考にオウム返し(parrot)のチャットbotを実装する。  
 その後(もしくは同時進行で)微分のシステムを開発し上記のオウム返しチャットbotに組み込むことで微分botの完成とする。
+
+### AWSアカウント作成
+
+AWSアカウント作成後、初期設定を行う  
+[AWSアカウントを取得したら速攻でやっておくべき初期設定まとめ](https://qiita.com/tmknom/items/303db2d1d928db720888#iamパスワードポリシーの適用)  
+を参考にした。また、セキュリティ設定がメインでキャッシング設定は特にしていない
 
 
 ### オウム返しチャットbot作成
