@@ -97,7 +97,7 @@ var object = { name: "Ronald", number: 7, nation: "Portugal" };
 // JSON
 var json = { "name": "Ronald", "number": 7, "nation": "Portugal" };
 >~~~
-> ###### ！注！ 上記の状態ではまだJSONではない(テキストデータ化されているためオブジェクトである)
+> **！注！ 上記の状態ではまだJSONではない(テキストデータ化されているためオブジェクトである)**
 > 'json'というオブジェクトを**エンコード**することで'json'というJSON形式のデータにする
 ~~~JavaScript
 console.log(JSON.stringify(json));
