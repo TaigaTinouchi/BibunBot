@@ -1,4 +1,4 @@
-// モジュールDynamoDBを用いてputItemする
+// モジュールDynamoDBを用いたutItem
 var aws = require('aws-sdk');
 var dynamodb = new aws.DynamoDB({region: 'ap-northeast-1'});
 
