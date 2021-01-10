@@ -66,7 +66,7 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 ### JSON形式について
 > 参考サイト:[jsonのエンコード,デコードについて](https://techplay.jp/column/611)  
 
-JSON->JavaScript Object Notation (Notation：表記)  
+JSO：JavaScript Object Notation (Notation：表記)  
 
 > #### （予備知識）jsにおけるオブジェクトとは  
 (参考：https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Basics)
@@ -89,7 +89,7 @@ const person = {
 >- push,deleteなど作成後に様々なメソッドで操作可能
 
 
-> #### 特徴  
+> #### JSONとオブジェクト  
 > js内でオブジェクトとして扱うことができる（実際には単なるテキストデータ）  
 >~~~JavaScript
 // object
@@ -119,3 +119,33 @@ console.log(JSON.parse(json));
 $ { name: "Ronald", number: 7, nation: "Portugal" }
 ~~~
 > プロパティ(JSONでいうKey)部分のダブルクォーテーションマークが外れて、オブジェクトになっていることが確認できる。
+---
+
+### IPアドレス
+> 参考サイト： https://wa3.i-3-i.info/index.html より
+
+**IP：Internet Protocol**  
+プロトコルの一種
+
+> **Protocol**  
+> 1.外交儀礼、儀典、礼儀作法、慣習  
+> 2.条約議定書、協約、協定、議定書
+> 3.手順、手続き、指令、命令
+> 4.〔コンピューターの〕通信接続手順、通信規約◆コンピューター間でデータを送受信するためのルール［決まり事］
+
+通信プロトコル一覧
+
+| 名前 | 概要 |
+| :---: | :---: |
+| [IP](https://wa3.i-3-i.info/word1807.html) | インターネット通信に関するプロトコル</br>(Internet Protocol) |
+| [FTP](https://wa3.i-3-i.info/word1137.html) | ファイルの受け渡しに関するプロトコル</br>(File Transfer Protocol) |
+| [SMTP](https://wa3.i-3-i.info/word14.html) | メールを送信する際に用いるプロトコル</br>(Simple Mail Transfer Protocol) |
+| [POP](https://wa3.i-3-i.info/word12686.html) | メールサーバからメール（のコピー）を持ってきて読むプロトコル</br>(Post Office Protocol) |
+| [IMAP](https://wa3.i-3-i.info/word1136.html) | メールサーバ上でメールを読む際に用いるプロトコル</br>(Internet Message Access Protocol) |
+| [HTTP](https://wa3.i-3-i.info/word165.html) | ホームページを見る際に用いるプロトコル</br>(Hyper Text Transfer Protocol)|
+| [TCP](https://wa3.i-3-i.info/word19.html) | 安全性に重点を置いた通信に用いられるプロトコル</br>(Transmission Control Protocol) |
+| [UDP](https://wa3.i-3-i.info/word110.html) | 通信速度を重点を置いた通信に用いられるプロトコル</br>(User Datagram Protocol) |
+| [NTP](https://wa3.i-3-i.info/word12071.html) | ネットワーク経由で時刻を合わせる際に用いられるプロトコル</br>(Netwok Time Protocol) |
+| [PPP](https://wa3.i-3-i.info/word12021.html) | 2点間で仮想的に専用の経路を確立し、データを送受信するための通信プロトコル</br>(Point to Point Protocol) |
+
+なんかIPについてじゃなくてプロトコルのまとめになっちゃったけどまあいいか。
