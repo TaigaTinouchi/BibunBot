@@ -16,7 +16,7 @@ https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receive
 > 多変数関数に対する対応（偏微分、全微分の実装）  
 > 等、具体的な仕様に関しては要検討
 
-
+---
 ## フローチャート
 
 >実装目標は微分botだが、インフラがないと微分をするシステムを開発しても意味がないことから、まずインフラを整えることを目標に  
@@ -46,6 +46,7 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 のいずれかに問題があることがわかった。
 そこで、また新しくVPC設定を１からやり直し、lambdaの挙動を確認する。
 
+---
 
 ## タスク管理
 ### 木内
@@ -59,3 +60,63 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 
 ### 未振り分け
 >- 実際に微分を行うシステム開発
+---
+## 学習内容まとめ
+
+### JSON形式について
+> 参考サイト:[jsonのエンコード,デコードについて](https://techplay.jp/column/611)  
+
+JSON->JavaScript Object Notation (Notation：表記)  
+
+> #### （予備知識）jsにおけるオブジェクトとは  
+(参考：https://developer.mozilla.org/ja/docs/Learn/JavaScript/Objects/Basics)
+~~~JavaScript
+const person = {
+  name: ['Bob', 'Smith'],
+  age: 32,
+  gender: 'male',
+  interests: ['music', 'skiing'],
+  bio: function() {
+    alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old. He likes ' + this.interests[0] + ' and ' + this.interests[1] + '.');
+  },
+  greeting: function() {
+    alert('Hi! I\'m ' + this.name[0] + '.');
+  }
+};
+//const:定義後に変更できない
+~~~
+>- プロパティ(JSONでいうKey)に対するvalueは配列、int or float値、str型、関数を用いることができる  
+>- Keyはstr型でなくても良い  
+>- push,deleteなど作成後に様々なメソッドで操作可能
+
+
+> #### 特徴  
+> js内でオブジェクトとして扱うことができる（実際には単なるテキストデータ）  
+>~~~JavaScript
+// object
+var object = { name: "Ronald", number: 7, nation: "Portugal" };
+// JSON
+var json = { "name": "Ronald", "number": 7, "nation": "Portugal" };
+>~~~
+> ###### ！注！ 上記の状態ではまだJSONではない(テキストデータ化されているためオブジェクトである)
+> 'json'というオブジェクトを**エンコード**することで'json'というJSON形式のデータにする
+~~~JavaScript
+console.log(JSON.stringify(json));
+~~~
+> とするとエンコードされJSONになった（str型になった）'json'がログに出力される
+~~~
+$ { "name": "Ronald", "number": 7, "nation": "Portugal" }
+~~~
+> この状態にすることでオブジェクトというjs特有のデータ（オブジェクト）としてではなく単なるテキストとしてデータをサーバー間などで送受信することができる。
+> このようにして、JSON形式でデータを送受信している。  
+> これまでは、JSONファイルの送信側のJSONファイルの扱いについての説明  
+> 受信側では？？  
+>  -> 与えられたJSONファイル（エンコード済）をオブジェクトとして**デコード**することで扱えるようにする
+~~~JavaScript
+console.log(JSON.parse(json));
+~~~
+> とするとデコードされオブジェクト化した'json'がログに出力される
+~~~
+$ { name: "Ronald", number: 7, nation: "Portugal" }
+~~~
+> プロパティ(JSONでいうKey)部分のダブルクォーテーションマークが外れて、オブジェクトになっていることが確認できる。
