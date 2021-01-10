@@ -6,6 +6,9 @@
 >- [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
 >- [LINE Developers](https://developers.line.biz/console/channel/1655537453/roles)  
 >- [課題共有ss](https://docs.google.com/spreadsheets/d/1AtQ1Wharz8B4jLhwhzF1eSXRPA9MRjjBHujilBjL37Q/edit?ts=5ff29f39#gid=0)  
+>- [webhook URL](
+https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receiver)
+>- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
 
 ## 仕様
 ラインでチャットされた関数に対し、その関数の微分を返信するチャットbotを作成する。  
@@ -17,19 +20,27 @@
 
 >実装目標は微分botだが、インフラがないと微分をするシステムを開発しても意味がないことから、まずインフラを整えることを目標に  
 [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
-を参考にオウム返しのチャットbotを実装する。  
+を参考にオウム返し(parrot)のチャットbotを実装する。  
 その後(もしくは同時進行で)微分のシステムを開発し上記のオウム返しチャットbotに組み込むことで微分botの完成とする。
+
 
 ### オウム返しチャットbot作成
 視覚的なチャートは以下  
 ![フローチャート](https://qiita-user-contents.imgix.net/https%3A%2F%2Fi.gyazo.com%2F1cb323bd58181a5ec13419d0d707ea32.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&s=b971b39ea820ad75424eb67c4c2bd09e"チャート")
 (https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c より)
 
+!現在lambda関数とDynamoDBの紐付けで苦戦中!
+
+### 確認事項
+[初めての、LambdaとDynamoDBを使ったAPI開発](https://qiita.com/hellscare/items/d80c9ff0290966eb0cf8)を元にタスクを確認していく
+>- lambdaにポリシーがアタッチされているのか  
+(IAMで使用するlambda関数のロールにポリシーが適切にアタッチされているか)
+>- DynamoDB
 
 ## タスク管理
 ### 木内
 >- タスク管理
->- API gateway 調査、実装
+>- AWSアカウント初期設定
 >- 期末レポート
 >- ダイエット
 
