@@ -1,3 +1,4 @@
+// モジュールDynamoDBを用いてputItemする
 var aws = require('aws-sdk');
 var dynamodb = new aws.DynamoDB({region: 'ap-northeast-1'});
 
@@ -22,3 +23,32 @@ exports.handler = function(event, context) {
         }
     );
 };
+
+// DocumentClientを用いたput
+/*
+var AWS = require('aws-sdk');
+var dynamo = new AWS.DynamoDB.DocumentClient({
+    region: 'ap-northeast-1'
+});
+
+exports.handler = (event, context, callback) => {
+
+    var date = new Date();
+    var time1 = date.getTime();
+    var unixtime_sec = Math.floor(time1 / 1000);
+    var msg = event.events[0];
+
+    console.log("event:", JSON.stringify(event, null, 2));
+    dynamo.put({
+        "TableName": "BibunBot",
+        "Item": {
+            "id":msg.message.id,
+          "text":msg.message.text,
+          "userId":msg.source.userId
+        }
+    }, function( err, data ) {
+        console.log("dynamo_err:", err);
+        context.done(null, data);
+    });
+};
+*/
