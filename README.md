@@ -85,8 +85,7 @@ const person = {
 };
 //const:定義後に変更できない
 ~~~
->- プロパティ(JSONでいうKey)に対するvalueは配列、int or float値、str型、関数を用いることができる  
->- Keyはstr型でなくても良い  
+>- プロパティ(JSONでいうKey)に対するvalueは配列、int or float値、str型、関数を用いることができる   
 >- push,deleteなど作成後に様々なメソッドで操作可能
 
 
