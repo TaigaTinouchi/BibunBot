@@ -29,13 +29,16 @@ https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receive
 ![フローチャート](https://qiita-user-contents.imgix.net/https%3A%2F%2Fi.gyazo.com%2F1cb323bd58181a5ec13419d0d707ea32.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&s=b971b39ea820ad75424eb67c4c2bd09e"チャート")
 (https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c より)
 
-!現在lambda関数とDynamoDBの紐付けで苦戦中!
+> lambda関数を用いたDynamoDBへのItemのputが正常に動かなかった  
 
-### 確認事項
-[初めての、LambdaとDynamoDBを使ったAPI開発](https://qiita.com/hellscare/items/d80c9ff0290966eb0cf8)を元にタスクを確認していく
->- lambdaにポリシーがアタッチされているのか  
-(IAMで使用するlambda関数のロールにポリシーが適切にアタッチされているか)
->- DynamoDB
+VPCに紐付けされていないlambda関数を作成したところ、正常に動作したことから
+- VPC設定  
+- lambda関数のVPCの紐付け
+- etc  
+
+のいずれかに問題があることがわかった。
+そこで、また新しくVPC設定を１からやり直し、lambdaの挙動を確認する。
+
 
 ## タスク管理
 ### 木内
@@ -48,5 +51,4 @@ https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receive
 >- lambda,DynamoDB調査、環境構築、実装
 
 ### 未振り分け
->- webhook 調査、実装
 >- 実際に微分を行うシステム開発
