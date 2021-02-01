@@ -1,6 +1,21 @@
 # 微分bot
 
 
+## ライブラリ
+> ### README
+> 仕様、スペック、参考サイト、フローチャート、タスク管理
+> ### Docks
+> 雑多
+> ### parrot
+> オウム返し関連
+> ### CD.md
+> 開発環境設定
+> ### main
+> 実装用
+
+
+
+
 ## 関連URL
 >- [Github](https://github.com/TaigaTinouchi/Bibun-bot)
 >- [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
