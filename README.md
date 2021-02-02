@@ -2,16 +2,24 @@
 
 
 ## ライブラリ
-> ### README
-> 仕様、スペック、参考サイト、フローチャート、タスク管理
-> ### Docks
-> 雑多
-> ### parrot
-> オウム返し関連
-> ### CD.md
-> 開発環境設定
-> ### main
-> 実装用
+### README
+仕様、スペック、参考サイト、フローチャート、タスク管理
+### Docks
+雑多
+### parrot
+オウム返し関連
+- ToDynamoDB
+>DynamoDBを呼び出すlambda関数
+- conslod
+> 単にコンソールにログを表示するlambda関数
+- test_lambda.js
+>テスト用lambda関数
+### CD.md
+開発環境設定
+### main
+実装用
+- lambdaIn.js
+> LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。
 
 
 
