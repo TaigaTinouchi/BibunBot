@@ -14,10 +14,11 @@
 > 単にコンソールにログを表示するlambda関数
 - test_lambda.js
 >テスト用lambda関数
+
 ### CD.md
 開発環境設定
+
 ### main
-実装用
 - lambdaIn.js
 > LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。
 
@@ -56,10 +57,10 @@ AWSアカウント作成後、初期設定を行う
 
 ### オウム返しチャットbot作成
 視覚的なチャートは以下  
-![フローチャート](https://qiita-user-contents.imgix.net/https%3A%2F%2Fi.gyazo.com%2F1cb323bd58181a5ec13419d0d707ea32.png?ixlib=rb-1.2.2&auto=format&gif-q=60&q=75&s=b971b39ea820ad75424eb67c4c2bd09e"チャート")
+![フローチャート](/Docks/chartImage.png)
 (https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c より)
 
-> lambda関数を用いたDynamoDBへのItemのputが正常に動かなかった  
+> lambda関数を用いたDynamoDBへのItemのputが正常に動かなかった(解決済み)  
 
 VPCに紐付けされていないlambda関数を作成したところ、正常に動作したことから
 - VPC設定  
@@ -69,21 +70,41 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 のいずれかに問題があることがわかった。
 そこで、また新しくVPC設定を１からやり直し、lambdaの挙動を確認する。
 
+-> ケチってNATgatewayを切っていたことに問題ありこれによりオウム返しbot完成
+
+
+### 微分システム構築
+
+今後の拡張性を考えて構築する。可能であればFourier級数展開などの微分以外の実装もしたい。->lambdaInを挟む  
+ここでは3つの関数を用意する。(lambdaIn,lmbdaMain,lambdaOut)
+
+**lambdaIn**
+>- LINEのmessage型を判定text以外の型はこの関数内で処理し直接ラインの返信をする(実装済み)
+>- message型がtextの場合の処理を行い、入力された数式に間違えがないかを確認する
+(入力をTEX形式で要求するか、Wolfram |Alpha APIを使う。後者の場合、微分をそのままAPIを用いた方がいい気もする。)
+>- 数式に要求的な間違いがない場合、lambdaMainを呼び出す。
+
+**lambdaMain**
+>- lambdaInにより呼び出される。
+>- 引数はLINEにより入力された数式
+>- 入力された数式の導関数と入力された数式をDynamoDBに送る
+
+**lambdaOut**
+>- DynamoDBに書き込みが生じた際に呼び出す。
+>- 導関数を返信する。また入力の確認として入力された数式をTEX出力として画像送信したい。
+
 ---
 
 ## タスク管理
 ### 木内
 >- タスク管理
->- AWSアカウント初期設定
->- 期末レポート
->- ダイエット
+>- 微分システム構築の要件定義
 
 ### 竹内
 >- lambda,DynamoDB調査、環境構築、実装
+>- lmbdaMainの開発
 
-### 未振り分け
->- 実際に微分を行うシステム開発
----
+
 ## 学習内容まとめ
 
 ### JSON形式について
