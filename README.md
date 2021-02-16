@@ -30,10 +30,10 @@
 >- [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
 >- [LINE Developers](https://developers.line.biz/console/channel/1655537453/roles)  
 >- [課題共有ss](https://docs.google.com/spreadsheets/d/1AtQ1Wharz8B4jLhwhzF1eSXRPA9MRjjBHujilBjL37Q/edit?ts=5ff29f39#gid=0)  
->- [webhook URL](
-https://nqkoz84f5f.execute-api.ap-northeast-1.amazonaws.com/line_webhook/receiver)
+>- webhook URL(非公開)
 >- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
 >- [AWSアカウントを取得したら速攻でやっておくべき初期設定まとめ](https://qiita.com/tmknom/items/303db2d1d928db720888#iamパスワードポリシーの適用)
+>- [Wolfram|Alpha API ドキュメント](https://products.wolframalpha.com/api/documentation/#xml-result-elements)
 
 ## 仕様
 ラインでチャットされた関数に対し、その関数の微分を返信するチャットbotを作成する。  
@@ -70,7 +70,9 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 のいずれかに問題があることがわかった。
 そこで、また新しくVPC設定を１からやり直し、lambdaの挙動を確認する。
 
--> ケチってNATgatewayを切っていたことに問題ありこれによりオウム返しbot完成
+>- ケチってNATgatewayを切っていたこと  
+>- VPCの環境設定をprivateとpublicで分けていたこと  
+に問題あり修正によりオウム返しbot完成
 
 
 ### 微分システム構築
@@ -84,11 +86,14 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 (入力をTEX形式で要求するか、Wolfram |Alpha APIを使う。後者の場合、微分をそのままAPIを用いた方がいい気もする。)
 >- 数式に要求的な間違いがない場合、lambdaMainを呼び出す。
 
+微分システムが完成するまではWolfram|Alpha APIを利用し、直接DynamoDB呼び出しをする。
+---
 **lambdaMain**
 >- lambdaInにより呼び出される。
 >- 引数はLINEにより入力された数式
 >- 入力された数式の導関数と入力された数式をDynamoDBに送る
 
+---
 **lambdaOut**
 >- DynamoDBに書き込みが生じた際に呼び出す。
 >- 導関数を返信する。また入力の確認として入力された数式をTEX出力として画像送信したい。
