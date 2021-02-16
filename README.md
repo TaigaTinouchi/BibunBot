@@ -34,7 +34,7 @@
 >- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
 >- [AWSアカウントを取得したら速攻でやっておくべき初期設定まとめ](https://qiita.com/tmknom/items/303db2d1d928db720888#iamパスワードポリシーの適用)
 >- [Wolfram|Alpha API ドキュメント](https://products.wolframalpha.com/api/documentation/#xml-result-elements)
-
+>- wolframalpha appID(非公開)
 ## 仕様
 ラインでチャットされた関数に対し、その関数の微分を返信するチャットbotを作成する。  
 > 多変数関数に対する対応（偏微分、全微分の実装）  
