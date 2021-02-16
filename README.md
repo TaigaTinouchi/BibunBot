@@ -84,9 +84,10 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 >- LINEのmessage型を判定text以外の型はこの関数内で処理し直接ラインの返信をする(実装済み)
 >- message型がtextの場合の処理を行い、入力された数式に間違えがないかを確認する
 (入力をTEX形式で要求するか、Wolfram |Alpha APIを使う。後者の場合、微分をそのままAPIを用いた方がいい気もする。)
->- 数式に要求的な間違いがない場合、lambdaMainを呼び出す。
+>- 数式に要求的な間違いがない場合、lambdaMainを呼び出す。  
 
 微分システムが完成するまではWolfram|Alpha APIを利用し、直接DynamoDB呼び出しをする。
+
 ---
 **lambdaMain**
 >- lambdaInにより呼び出される。
