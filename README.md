@@ -1,5 +1,5 @@
 # 微分bot
-
+BotベーシックID:@138auyzh
 ## 開発状況
 **仮完成**  
 解析的な微分を行う関数の完成までWolframAlphaのAPIを用いる。  
@@ -7,11 +7,14 @@
 入力に関して  
 例えば  
 x^4sin(x)を微分したい場合、  
-derivative%20of%20x^4%20sin%20x  
+x^4 sin x  
 と送信する。  
 出力は画像データとして　　
 ![出力結果](/Docks/outputExa.jpg)  
 となる。
+
+テストにより、WolframAlpha側の処理のラグから短時間で入力がいくつか発生するとLambdaInの実行が終わる前にlambdaInが呼びだされエラーが生じる。(未改善)
+
 
 | バグ | 概要 |
 | :---: | :---: |

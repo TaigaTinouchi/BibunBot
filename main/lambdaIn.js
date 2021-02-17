@@ -9,8 +9,10 @@ exports.handler = (event, context, callback) => {
   let msg = event.events[0];
   console.log("event:", JSON.stringify(event, null, 2));
   if(msg.message.type=="text"){
-    let input = msg.message.text;
-    let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input='+input+'&output=json';
+    var input = msg.message.text;
+    input = input.split(' ')
+    input.join('%20');
+    let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input=derivative%20of%20'+input+'&output=json';
     https.get(URL, function (res) {
       var body = '';
       res.setEncoding('utf8');

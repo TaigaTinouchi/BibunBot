@@ -12,7 +12,7 @@ exports.handler = function(event, context) {
                 "originalContentUrl":record.dynamodb.NewImage.output.S,
                 "previewImageUrl":record.dynamodb.NewImage.output.S
               }
-                ]
+            ]
         });
         var url ='https://api.line.me/v2/bot/message/reply';
         var opts = {
