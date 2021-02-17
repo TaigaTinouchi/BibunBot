@@ -34,7 +34,9 @@
 >- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
 >- [AWSアカウントを取得したら速攻でやっておくべき初期設定まとめ](https://qiita.com/tmknom/items/303db2d1d928db720888#iamパスワードポリシーの適用)
 >- [Wolfram|Alpha API ドキュメント](https://products.wolframalpha.com/api/documentation/#xml-result-elements)
+>- [Wolfram|Alpha API リファレンス](https://products.wolframalpha.com/docs/WolframAlpha-API-Reference.pdf)
 >- wolframalpha appID(非公開)
+>- [XMLとは？IT初心者にもわかりやすい基礎知識とHTMLとの違い](https://hnavi.co.jp/knowledge/blog/xml/)
 ## 仕様
 ラインでチャットされた関数に対し、その関数の微分を返信するチャットbotを作成する。  
 > 多変数関数に対する対応（偏微分、全微分の実装）  
@@ -86,13 +88,16 @@ VPCに紐付けされていないlambda関数を作成したところ、正常�
 (入力をTEX形式で要求するか、Wolfram |Alpha APIを使う。後者の場合、微分をそのままAPIを用いた方がいい気もする。)
 >- 数式に要求的な間違いがない場合、lambdaMainを呼び出す。  
 
-微分システムが完成するまではWolfram|Alpha APIを利用し、直接DynamoDB呼び出しをする。
+微分システムが完成するまではWolfram|Alpha APIを呼び出す。
 
 ---
 **lambdaMain**
 >- lambdaInにより呼び出される。
 >- 引数はLINEにより入力された数式
 >- 入力された数式の導関数と入力された数式をDynamoDBに送る
+
+
+微分システムが完成するまではWolfram|Alpha APIからのJSONを利用する。
 
 ---
 **lambdaOut**
@@ -199,3 +204,15 @@ $ { name: "Ronald", number: 7, nation: "Portugal" }
 | [PPP](https://wa3.i-3-i.info/word12021.html) | 2点間で仮想的に専用の経路を確立し、データを送受信するための通信プロトコル</br>(Point to Point Protocol) |
 
 なんかIPについてじゃなくてプロトコルのまとめになっちゃったけどまあいいか。
+
+---
+### XMLについて
+Wolfram|Alphaのドキュメントを見ると、応答がXML形式であることからXMLについて学ぶ必要があると感じたためまとめる
+サイト[XMLとは？IT初心者にもわかりやすい基礎知識とHTMLとの違い](https://hnavi.co.jp/knowledge/blog/xml/)を参考に学んでいく。
+
+**XML : Extensible Markup Language**  
+HTMLと構造は近いが目的が違う  
+HTML -> フロントエンドに利用。人間がデータを見る際にわかりやすいように構成する。  
+XML -> データをコンピュータ間で検索しやすいように構成する。プロトコル的な扱い方？  
+
+Wolfram|Alpha におけるタグ一覧は[Wolfram|Alpha API ドキュメント](https://products.wolframalpha.com/api/documentation/#xml-result-elements)のList of XML Result Elementsに記載されている。
