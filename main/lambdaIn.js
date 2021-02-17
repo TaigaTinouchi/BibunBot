@@ -11,8 +11,16 @@ exports.handler = (event, context, callback) => {
   if(msg.message.type=="text"){
     var input = msg.message.text;
     input = input.split(' ')
-    input.join('%20');
+    if(input.indexOf("+")==-1){
+      input = input.join('%20');
+    }else{
+      input[input.indexOf("+")] = "plus"
+      input = input.join('%20');
+    }
+
+    console.log(input)
     let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input=derivative%20of%20'+input+'&output=json';
+    console.log(URL)
     https.get(URL, function (res) {
       var body = '';
       res.setEncoding('utf8');
@@ -21,7 +29,7 @@ exports.handler = (event, context, callback) => {
       });
       res.on('data', function (chunk) {
         // body の値を json としてパースしている
-        res = JSON.parse(body);
+        res = JSON.parse(body||"null");
         console.log(res);
         dynamo.put({
           "TableName": "BibunBot",
