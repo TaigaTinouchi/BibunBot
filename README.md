@@ -8,10 +8,10 @@
 例えば  
 x^4sin(x)を微分したい場合、  
 derivative%20of%20x^4%20sin%20x  
-と送信する。
+と送信する。  
 出力は画像データとして　　
-![出力結果](/Docks/outputExa.jpg)
-
+![出力結果](/Docks/outputExa.jpg)  
+となる。
 
 | バグ | 概要 |
 | :---: | :---: |
