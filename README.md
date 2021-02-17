@@ -21,13 +21,15 @@
 ### main
 - lambdaIn.js
 > LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。
+> 開発状況：WolframAlpha APIの呼び出し実装中
 
 - lambdaMain.js
 > 微分処理
+> 開発状況
 
 - lambdaOut.js
 > DynamoDBをトリガーに導関数と入力をLINEのreplyURLに返す
-
+> 開発状況:完成
 
 
 ## 関連URL

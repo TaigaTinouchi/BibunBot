@@ -54,7 +54,7 @@ exports.handler = (event, context, callback) => {
 
     if(msg.message.type=="text"){
       let input = msg.message.text;
-      let URL = 'http://api.wolframalpha.com/v2/query'+'?input='+input+'&appid=UPYUJJ-TY5QTUPUUV';
+      let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input='+input+'&output=json';
       https.get(URL, function (res) {
         var body = '';
         res.setEncoding('utf8');
@@ -69,7 +69,7 @@ exports.handler = (event, context, callback) => {
               "Item": {
                   "id":msg.message.id,
                 "input":msg.message.text,
-                "output":res,
+                "output":res.,
                 "userId":msg.source.userId,
                 "replyToken":msg.replyToken
               }
