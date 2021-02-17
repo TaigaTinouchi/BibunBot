@@ -13,12 +13,32 @@ x^4 sin x
 ![出力結果](/Docks/outputExa.jpg)  
 となる。
 
-テストにより、WolframAlpha側の処理のラグから短時間で入力がいくつか発生するとLambdaInの実行が終わる前にlambdaInが呼びだされエラーが生じる。(未改善)
 
 
-| バグ | 概要 |
-| :---: | :---: |
-|加法演算子を乗法演算子と認識してしまうバグ|WolframAplphaに送信している演算子はlambdaInのコンソールログから加法演算子"+"の送信を確認できたが、WolframAlpha側では "×"と認識される。WolframAlphaの仕様を確認する必要あり。また、"+"の代わりに"plus"と入力すればバグが生じないことが確認できた|
+
+| バグ | 概要 | 結果 |
+| :---: | :---: | :---: |
+|加法演算子を乗法演算子と認識してしまうバグ|WolframAplphaに送信している演算子はlambdaInのコンソールログから加法演算子"+"の送信を確認できたが、WolframAlpha側では "×"と認識される。WolframAlphaの仕様を確認する必要あり。また、"+"の代わりに"plus"と入力すればバグが生じないことが確認できた| 解決 |
+|同じ入力でもlambdaInがエラーを吐く時と吐かない時がある|[エラー]^1(ERROR Uncaught Exception)LINEからのmessage取得は確認。http://api.wolframalpha.com/v2/query?appid=UPYUJJ-TY5QTUPUUV&input=derivative%20of%20sin%20x&output=json　ログにより上記のURLにgetしていることがわかった。(正常) 同じ入力内容でもエラーをになることから、WolframAlphaAPIのレスポンスのラグにより処理が間に合っていない可能性がある?|未解決|
+
+[エラー]^1
+~~~
+{
+    "errorType": "SyntaxError",
+    "errorMessage": "Unexpected end of JSON input",
+    "stack": [
+        "SyntaxError: Unexpected end of JSON input",
+        "    at JSON.parse (<anonymous>)",
+        "    at IncomingMessage.<anonymous> (/var/task/lambdaIn.js:32:20)",
+        "    at IncomingMessage.emit (events.js:326:22)",
+        "    at IncomingMessage.EventEmitter.emit (domain.js:483:12)",
+        "    at IncomingMessage.Readable.read (_stream_readable.js:507:10)",
+        "    at flow (_stream_readable.js:1007:34)",
+        "    at resume_ (_stream_readable.js:988:3)",
+        "    at processTicksAndRejections (internal/process/task_queues.js:84:21)"
+    ]
+}
+~~~
 
 ## ライブラリ
 ### README
