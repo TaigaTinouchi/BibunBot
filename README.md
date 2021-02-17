@@ -22,13 +22,19 @@
 - lambdaIn.js
 > LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。
 
+- lambdaMain.js
+> 微分処理
+
+- lambdaOut.js
+> DynamoDBをトリガーに導関数と入力をLINEのreplyURLに返す
 
 
 
 ## 関連URL
 >- [Github](https://github.com/TaigaTinouchi/Bibun-bot)
 >- [基本チャート(LINE Bot を AWSを使ってシステム構築してみた。)](https://qiita.com/hiyuzawa/items/10e7bf2f6ad5d1c7fc9c)  
->- [LINE Developers](https://developers.line.biz/console/channel/1655537453/roles)  
+>- [LINE Developers](https://developers.line.biz/console/channel/1655537453/roles)
+>- [LINE MessagikngAPI Developers](https://developers.line.biz/ja/docs/messaging-api/overview/)  
 >- [課題共有ss](https://docs.google.com/spreadsheets/d/1AtQ1Wharz8B4jLhwhzF1eSXRPA9MRjjBHujilBjL37Q/edit?ts=5ff29f39#gid=0)  
 >- webhook URL(非公開)
 >- [jsonのエンコード,デコードについて](https://techplay.jp/column/611)
