@@ -1,15 +1,57 @@
-let https = require('https');
+let https = require('http');
 let AWS = require('aws-sdk');
-let lambda = AWS.lambda({apiVersion:'2020-5-31'})
+let dynamo = new AWS.DynamoDB.DocumentClient({
+    region: 'ap-northeast-1'
+});
 
-class LINE{
-  function lineSender(Message,ReplyToken){
-    let resBody = JSON.stringify({
-      "replyToken":ReplyToken,
-      "messages":Message
+exports.handler = (event, context, callback) => {
+
+  let msg = event.events[0];
+  console.log("event:", JSON.stringify(event, null, 2));
+  if(msg.message.type=="text"){
+    let input = msg.message.text;
+    let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input='+input+'&output=json';
+    https.get(URL, function (res) {
+      var body = '';
+      res.setEncoding('utf8');
+      res.on('data', function (chunk) {
+        body += chunk;
+      });
+      res.on('data', function (chunk) {
+        // body の値を json としてパースしている
+        res = JSON.parse(body);
+        console.log(res);
+        dynamo.put({
+          "TableName": "BibunBot",
+            "Item": {
+              "id":msg.message.id,
+              "input":msg.message.text,
+              "output":res.queryresult.pods[0].subpods[0].img.src,
+              "userId":msg.source.userId,
+              "replyToken":msg.replyToken
+            }
+        }, function( err, data ) {
+          console.log("dynamo_err:", err);
+          context.done(null, data);
+        });
+          //DynamoDB呼び出し
+      })
+    }).on('error', function (e) {
+      console.log('waError',e.message);
     });
-    let url = 'https://api.line.me/v2/bot/message/reply';
-    let opts = {
+  }
+  else{
+    var resBody = JSON.stringify({
+      "replyToken":msg.replyToken,
+      "messages":[
+        {
+          "type":"text",
+          "text":"言葉で語ってください"
+        }
+      ]
+    });
+    var url ='https://api.line.me/v2/bot/message/reply';
+    var opts = {
       host: 'api.line.me',
       path: '/v2/bot/message/reply',
       headers: {
@@ -18,81 +60,17 @@ class LINE{
       },
       method: 'POST'
     };
-    let req = https.request(opts, function(res){
+    var req = https.request(opts, function(res){
       res.on('data', function(chunk){
         console.log(chunk.toString());
       }).on('error', function(e){
         console.log('ERROR: '+ e.stack);
       });
     });
-    if(msg.mode=="active"){
-      req.write(resBody);
-      req.end();
-    }
-  }
-
-
-  function TexSep(){
-    //TEX
-    //送信内容
-    let sendMes = JSON.stringify(msg.message.text,null, 2)
-    //lambda呼び出し用params
-
-
+    req.write(resBody);
+    req.end();
   }
 }
-
-
-exports.handler = (event, context, callback) => {
-
-    let date = new Date();
-    let time1 = date.getTime();
-    let unixtime_sec = Math.floor(time1 / 1000);
-    let msg = event.events[0];
-
-    console.log("event:", JSON.stringify(event, null, 2));
-
-    if(msg.message.type=="text"){
-      let input = msg.message.text;
-      let URL = 'http://api.wolframalpha.com/v2/query'+'?appid=UPYUJJ-TY5QTUPUUV'+'&input='+input+'&output=json';
-      https.get(URL, function (res) {
-        var body = '';
-        res.setEncoding('utf8');
-        res.on('data', function (chunk) {
-          body += chunk;
-        });
-        res.on('data', function (chunk) {
-          // body の値を json としてパースしている
-          res = JSON.parse(body);
-          dynamo.put({
-            "TableName": "BibunBot",
-              "Item": {
-                  "id":msg.message.id,
-                "input":msg.message.text,
-                "output":res.,
-                "userId":msg.source.userId,
-                "replyToken":msg.replyToken
-              }
-          }, function( err, data ) {
-              console.log("dynamo_err:", err);
-              context.done(null, data);
-          });
-          //DynamoDB呼び出し
-        })
-      }).on('error', function (e) {
-        console.log(e.message);
-      });
-    }
-    else{
-      sendingMsg = [
-        {
-          "type":"text",
-          "text":"言葉で語ってください"
-        }
-      ]
-      LINE.lineSender(sendingMsg,msg.replyToken);
-    }
-  }
 
   /*event内容
   {
@@ -126,17 +104,3 @@ exports.handler = (event, context, callback) => {
     ]
   }
   */
-  https.get(URL, function (res) {
-      var body = '';
-      res.setEncoding('utf8');
-      res.on('data', function (chunk) {
-          body += chunk;
-      });
-      res.on('data', function (chunk) {
-          // body の値を json としてパースしている
-          res = JSON.parse(body);
-          console.log(`現在のレートは${res.rate}円/Bitcoinだよ！！`);
-      })
-    }).on('error', function (e) {
-      console.log(e.message);
-  });

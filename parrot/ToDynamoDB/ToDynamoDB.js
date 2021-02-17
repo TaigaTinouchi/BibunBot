@@ -56,8 +56,8 @@ exports.handler = (event, context, callback) => {
             });
         req.write(resBody);
         req.end();
-        }
     }
+}
 /*
 // モジュールDynamoDBを用いたutItem
 var aws = require('aws-sdk');

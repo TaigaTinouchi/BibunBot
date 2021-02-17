@@ -1,5 +1,21 @@
 # 微分bot
 
+## 開発状況
+**仮完成**  
+解析的な微分を行う関数の完成までWolframAlphaのAPIを用いる。  
+
+入力に関して  
+例えば  
+x^4sin(x)を微分したい場合、  
+derivative%20of%20x^4%20sin%20x  
+と送信する。
+出力は画像データとして　　
+![出力結果](/Docks/outputExa.jpg)
+
+
+| バグ | 概要 |
+| :---: | :---: |
+|加法演算子を乗法演算子と認識してしまうバグ|WolframAplphaに送信している演算子はlambdaInのコンソールログから加法演算子"+"の送信を確認できたが、WolframAlpha側では "×"と認識される。WolframAlphaの仕様を確認する必要あり|
 
 ## ライブラリ
 ### README
@@ -20,12 +36,12 @@
 
 ### main
 - lambdaIn.js
-> LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。
-> 開発状況：WolframAlpha APIの呼び出し実装中
+> LINEAPIのwebhookURLからjsonデータを受け取り、処理決定する。またlambdaMainが完成するまではWolframAlphaのAPIを用い導関数のデータ取得及びDynamoDB呼び出しまで行う
+> 開発状況：完成
 
 - lambdaMain.js
 > 微分処理
-> 開発状況
+> 開発状況:未実装
 
 - lambdaOut.js
 > DynamoDBをトリガーに導関数と入力をLINEのreplyURLに返す
@@ -215,7 +231,7 @@ $ { name: "Ronald", number: 7, nation: "Portugal" }
 
 ---
 ### XMLについて
-Wolfram|Alphaのドキュメントを見ると、応答がXML形式であることからXMLについて学ぶ必要があると感じたためまとめる
+Wolfram|Alphaのドキュメントを見ると、応答がXML形式であることからXMLについて学ぶ必要があると感じたためまとめる(JSON型で受け取れることがわかったので、XMLは使用しない)
 サイト[XMLとは？IT初心者にもわかりやすい基礎知識とHTMLとの違い](https://hnavi.co.jp/knowledge/blog/xml/)を参考に学んでいく。
 
 **XML : Extensible Markup Language**  

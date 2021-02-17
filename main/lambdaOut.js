@@ -8,12 +8,9 @@ exports.handler = function(event, context) {
             replyToken:record.dynamodb.NewImage.replyToken.S,
             "messages":[
               {
-                "type":"text",
-                "input":record.dynamodb.NewImage.ipnut.S,
-              }
-              {
-                "type":"text",
-                "output":record.dynamodb.NewImage.output.S
+                "type":"image",
+                "originalContentUrl":record.dynamodb.NewImage.output.S,
+                "previewImageUrl":record.dynamodb.NewImage.output.S
               }
                 ]
         });
