@@ -19,7 +19,7 @@ x^4 sin x
 | バグ | 概要 | 結果 |
 | :---: | :---: | :---: |
 |加法演算子を乗法演算子と認識してしまうバグ|WolframAplphaに送信している演算子はlambdaInのコンソールログから加法演算子"+"の送信を確認できたが、WolframAlpha側では "×"と認識される。WolframAlphaの仕様を確認する必要あり。また、"+"の代わりに"plus"と入力すればバグが生じないことが確認できた| 配列要素をplusに変換することで解決 |
-|同じ入力でもlambdaInがエラーを吐く時と吐かない時がある|[エラー]^1(ERROR Uncaught Exception)LINEからのmessage取得は確認。http://api.wolframalpha.com/v2/query?appid=XXXXXX-XXXXXXXXXXX&input=derivative%20of%20sin%20x&output=json　ログにより上記のURLにgetしていることがわかった。(正常) エラコードからperseがうまく行っていないことがわかった同じ入力内容でもエラーをになること、LINEからのmessage取得は確認できたことから、WolframAlphaAPIのレスポンスのラグにより処理が間に合っていない可能性がある?|未解決|
+|同じ入力でもlambdaInがエラーを吐く時と吐かない時がある|[エラー]^1(ERROR Uncaught Exception)LINEからのmessage取得は確認。http://api.wolframalpha.com/v2/query?appid=XXXXXX-XXXXXXXXXXX&input=derivative%20of%20sin%20x&output=json　ログにより上記のURLにgetしていることがわかった。(正常) エラコードからperseがうまく行っていないことがわかった同じ入力内容でもエラーになったりならなかったりする。ログから、WolframAlphaの応答に問題はない頃がわかったのでparseできない原因を探る。|未解決|
 
 [エラー]^1
 ~~~
