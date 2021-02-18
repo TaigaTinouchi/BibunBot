@@ -28,10 +28,11 @@ exports.handler = (event, context, callback) => {
         body += chunk;
       });
       res.on('data', function (chunk) {
+        console.log("form WolframAplpha",body);
         // body の値を json としてパースしている
-        res = JSON.parse(body||"null");
-        console.log(res);
-        dynamo.put({
+        try {
+          res = JSON.parse(body||"null");
+          dynamo.put({
           "TableName": "BibunBot",
             "Item": {
               "id":msg.message.id,
@@ -45,6 +46,39 @@ exports.handler = (event, context, callback) => {
           context.done(null, data);
         });
           //DynamoDB呼び出し
+        } catch (e) {
+          var resBody = JSON.stringify({
+            "replyToken":msg.replyToken,
+            "messages":[
+              {
+                "type":"text",
+                "text":"エラーが発生しました。もう一度送信お願いします"
+              }
+            ]
+          });
+          var url ='https://api.line.me/v2/bot/message/reply';
+          var opts = {
+            host: 'api.line.me',
+            path: '/v2/bot/message/reply',
+            headers: {
+              "Content-type": "application/json; charset=UTF-8",
+              "Authorization":"Bearer {mcBUN4ZGeFZb6IRSznzv0FkoFZkUrOqlk89Gc/MvYKEb/Ufz5/KD5Su5/HQCc+tRdu1jNw9ThNUM78eQ4BGIuJrKLk/WyxKWRBRLs4V3IsrNw+MzYXPeHCZaMX4U7jEG1P45f/CICErnBneEUUDEHQdB04t89/1O/w1cDnyilFU=}"
+            },
+            method: 'POST'
+          };
+          var req = https.request(opts, function(res){
+            res.on('data', function(chunk){
+              console.log(chunk.toString());
+            }).on('error', function(e){
+              console.log('ERROR: '+ e.stack);
+            });
+          });
+          req.write(resBody);
+          req.end();
+        }
+
+
+
       })
     }).on('error', function (e) {
       console.log('waError',e.message);

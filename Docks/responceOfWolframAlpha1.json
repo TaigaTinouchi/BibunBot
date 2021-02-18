@@ -1,1 +1,216 @@
-2021-02-18T19:25:01.777Z	fb5b0a3e-625a-4ed2-bd28-8e913abd3ee2	INFO	form WolframAplpha {	"queryresult":{		"success":true,		"error":false,		"numpods":6,		"datatypes":"D",		"timedout":"",		"timedoutpods":"",		"timing":3.242,		"parsetiming":0.421,		"parsetimedout":false,		"recalculate":"",		"id":"MSP64310g6340g37h3797e0000132hedcf9f888242",		"host":"https:\/\/www4b.wolframalpha.com",		"server":"11",		"related":"https:\/\/www4b.wolframalpha.com\/api\/v1\/relatedQueries.jsp?id=MSPa64410g6340g37h3797e000047h59ah8ged3g0881191859858596026511",		"version":"2.6",		"pods":[			{				"title":"Derivative",				"scanner":"Derivative",				"id":"Input",				"position":100,				"error":false,				"numsubpods":1,				"primary":true,				"subpods":[					{						"title":"",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64510g6340g37h3797e000032d0c4d4e590ha8g?MSPStoreType=image\/gif&s=11",							"alt":"d\/dx(8 x^6) = 48 x^5",							"title":"d\/dx(8 x^6) = 48 x^5",							"width":115,							"height":39,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"d\/dx(8 x^6) = 48 x^5"					}				],				"expressiontypes":{					"name":"Default"				},				"states":[					{						"name":"Step-by-step solution",						"input":"Input__Step-by-step solution",						"stepbystep":true					}				]			},			{				"title":"Plot",				"scanner":"Plotter",				"id":"Plot",				"position":200,				"error":false,				"numsubpods":1,				"subpods":[					{						"title":"",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64610g6340g37h3797e00003d9icch2cg4bf18c?MSPStoreType=image\/gif&s=11",							"alt":"Plot",							"title":"",							"width":337,							"height":145,							"type":"2DMathPlot_1",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":""					}				],				"expressiontypes":{					"name":"2DMathPlot"				}			},			{				"title":"Root",				"scanner":"Reduce",				"id":"Root",				"position":300,				"error":false,				"numsubpods":1,				"primary":true,				"subpods":[					{						"title":"",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64710g6340g37h3797e00004469i0d3900f2854?MSPStoreType=image\/gif&s=11",							"alt":"x = 0",							"title":"x = 0",							"width":550,							"height":22,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"x = 0"					}				],				"expressiontypes":{					"name":"Default"				},				"states":[					{						"name":"Step-by-step solution",						"input":"Root__Step-by-step solution",						"stepbystep":true					}				]			},			{				"title":"Polynomial discriminant",				"scanner":"Expression",				"id":"PolynomialDiscriminant",				"position":400,				"error":false,				"numsubpods":1,				"subpods":[					{						"title":"",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64810g6340g37h3797e000037i97ge2h301f40c?MSPStoreType=image\/gif&s=11",							"alt":"Δ = 0",							"title":"Δ = 0",							"width":38,							"height":19,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"Δ = 0"					}				],				"expressiontypes":{					"name":"Default"				}			},			{				"title":"Properties as a real function",				"scanner":"FunctionProperties",				"id":"PropertiesAsARealFunction",				"position":500,				"error":false,				"numsubpods":4,				"subpods":[					{						"title":"Domain",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64910g6340g37h3797e000023g49g43i33be0hd?MSPStoreType=image\/gif&s=11",							"alt":"R (all real numbers)",							"title":"R (all real numbers)",							"width":136,							"height":19,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"R (all real numbers)"					},					{						"title":"Range",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65010g6340g37h3797e00001454c5h0bahbch9g?MSPStoreType=image\/gif&s=11",							"alt":"R (all real numbers)",							"title":"R (all real numbers)",							"width":136,							"height":19,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"R (all real numbers)"					},					{						"title":"Bijectivity",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65110g6340g37h3797e000041d64953c62hdde1?MSPStoreType=image\/gif&s=11",							"alt":"bijective from its domain to R",							"title":"bijective from its domain to R",							"width":198,							"height":19,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"bijective from its domain to R"					},					{						"title":"Parity",						"img":{							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65210g6340g37h3797e000029fh1b7dgagiief0?MSPStoreType=image\/gif&s=11",							"alt":"odd",							"title":"odd",							"width":24,							"height":19,							"type":"Default",							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",							"colorinvertable":true						},						"plaintext":"odd"					}				],				"expressiontypes":[					{						"name":"Default"					},					{						"name":"Default"					},					{						"name":"Default"					},
+"queryresult":{
+		"success":true,
+		"error":false,
+		"numpods":6,
+		"datatypes":"D",
+		"timedout":"",
+		"timedoutpods":"",
+		"timing":3.242,
+		"parsetiming":0.421,
+		"parsetimedout":false,
+		"recalculate":"",
+		"id":"MSP64310g6340g37h3797e0000132hedcf9f888242",
+		"host":"https:\/\/www4b.wolframalpha.com",
+		"server":"11",
+		"related":"https:\/\/www4b.wolframalpha.com\/api\/v1\/relatedQueries.jsp?id=MSPa64410g6340g37h3797e000047h59ah8ged3g0881191859858596026511",
+		"version":"2.6",
+		"pods":[
+			{
+				"title":"Derivative",
+				"scanner":"Derivative",
+				"id":"Input",
+				"position":100,
+				"error":false,
+				"numsubpods":1,
+				"primary":true,
+				"subpods":[
+					{
+						"title":"",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64510g6340g37h3797e000032d0c4d4e590ha8g?MSPStoreType=image\/gif&s=11",
+							"alt":"d\/dx(8 x^6) = 48 x^5",
+							"title":"d\/dx(8 x^6) = 48 x^5",
+							"width":115,
+							"height":39,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"d\/dx(8 x^6) = 48 x^5"
+					}
+				],
+				"expressiontypes":{
+					"name":"Default"
+				},
+				"states":[
+					{
+						"name":"Step-by-step solution",
+						"input":"Input__Step-by-step solution",
+						"stepbystep":true
+					}
+				]
+			},
+			{
+				"title":"Plot",
+				"scanner":"Plotter",
+				"id":"Plot",
+				"position":200,
+				"error":false,
+				"numsubpods":1,
+				"subpods":[
+					{
+						"title":"",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64610g6340g37h3797e00003d9icch2cg4bf18c?MSPStoreType=image\/gif&s=11",
+							"alt":"Plot",
+							"title":"",
+							"width":337,
+							"height":145,
+							"type":"2DMathPlot_1",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":""
+					}
+				],
+				"expressiontypes":{
+					"name":"2DMathPlot"
+				}
+			},
+			{
+				"title":"Root",
+				"scanner":"Reduce",
+				"id":"Root",
+				"position":300,
+				"error":false,
+				"numsubpods":1,
+				"primary":true,
+				"subpods":[
+					{
+						"title":"",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64710g6340g37h3797e00004469i0d3900f2854?MSPStoreType=image\/gif&s=11",
+							"alt":"x = 0",
+							"title":"x = 0",
+							"width":550,
+							"height":22,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"x = 0"
+					}
+				],
+				"expressiontypes":{
+					"name":"Default"
+				},
+				"states":[
+					{
+						"name":"Step-by-step solution",
+						"input":"Root__Step-by-step solution",
+						"stepbystep":true
+					}
+				]
+			},
+			{
+				"title":"Polynomial discriminant",
+				"scanner":"Expression",
+				"id":"PolynomialDiscriminant",
+				"position":400,
+				"error":false,
+				"numsubpods":1,
+				"subpods":[
+					{
+						"title":"",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64810g6340g37h3797e000037i97ge2h301f40c?MSPStoreType=image\/gif&s=11",
+							"alt":"Δ = 0",
+							"title":"Δ = 0",
+							"width":38,
+							"height":19,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"Δ = 0"
+					}
+				],
+				"expressiontypes":{
+					"name":"Default"
+				}
+			},
+			{
+				"title":"Properties as a real function",
+				"scanner":"FunctionProperties",
+				"id":"PropertiesAsARealFunction",
+				"position":500,
+				"error":false,
+				"numsubpods":4,
+				"subpods":[
+					{
+						"title":"Domain",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP64910g6340g37h3797e000023g49g43i33be0hd?MSPStoreType=image\/gif&s=11",
+							"alt":"R (all real numbers)",
+							"title":"R (all real numbers)",
+							"width":136,
+							"height":19,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"R (all real numbers)"
+					},
+					{
+						"title":"Range",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65010g6340g37h3797e00001454c5h0bahbch9g?MSPStoreType=image\/gif&s=11",
+							"alt":"R (all real numbers)",
+							"title":"R (all real numbers)",
+							"width":136,
+							"height":19,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"R (all real numbers)"
+					},
+					{
+						"title":"Bijectivity",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65110g6340g37h3797e000041d64953c62hdde1?MSPStoreType=image\/gif&s=11",
+							"alt":"bijective from its domain to R",
+							"title":"bijective from its domain to R",
+							"width":198,
+							"height":19,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"bijective from its domain to R"
+					},
+					{
+						"title":"Parity",
+						"img":{
+							"src":"https:\/\/www4b.wolframalpha.com\/Calculate\/MSP\/MSP65210g6340g37h3797e000029fh1b7dgagiief0?MSPStoreType=image\/gif&s=11",
+							"alt":"odd",
+							"title":"odd",
+							"width":24,
+							"height":19,
+							"type":"Default",
+							"themes":"1,2,3,4,5,6,7,8,9,10,11,12",
+							"colorinvertable":true
+						},
+						"plaintext":"odd"
+					}
+				],
+				"expressiontypes":[
+					{
+						"name":"Default"
+					},
+					{
+						"name":"Default"
+					},
+					{
+						"name":"Default"
+					},
