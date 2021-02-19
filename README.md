@@ -13,6 +13,8 @@ x^4 sin x
 ![出力結果](/Docks/outputExa.jpg)  
 となる。
 
+実際の様子↓
+![画像](/Docks/IMG_3580.PNG)
 
 
 
