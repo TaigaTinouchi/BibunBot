@@ -11,11 +11,14 @@ exports.handler = (event, context, callback) => {
   if(msg.message.type=="text"){
     var input = msg.message.text;
     input = input.split(' ')
-    if(input.indexOf("+")==-1){
-      input = input.join('%20');
-    }else{
-      input[input.indexOf("+")] = "plus"
-      input = input.join('%20');
+    while (True){
+      if(input.indexOf("+")==-1){
+        input = input.join('%20');
+        break;
+      }else{
+        input[input.indexOf("+")] = "plus"
+        input = input.join('%20');
+      }
     }
 
     console.log(input)
@@ -116,35 +119,4 @@ exports.handler = (event, context, callback) => {
   }
 }
 
-  /*event内容
-  {
-    "destination": "xxxxxxxxxx",
-    "events": [
-      {
-        "replyToken": "0f3779fba3b349968c5d07db31eab56f",
-        "type": "message",
-        "mode": "active",
-        "timestamp": 1462629479859,
-        "source": {
-          "type": "user",
-          "userId": "U4af4980629..."
-        },
-        "message": {
-          "id": "325708",
-          "type": "text",
-          "text": "Hello, world"
-        }
-      },
-      {
-        "replyToken": "8cf9239d56244f4197887e939187e19e",
-        "type": "follow",
-        "mode": "active",
-        "timestamp": 1462629479859,
-        "source": {
-          "type": "user",
-          "userId": "U4af4980629..."
-        }
-      }
-    ]
-  }
-  */
+  
